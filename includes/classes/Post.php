@@ -97,7 +97,7 @@ class Post
                     }
 
                     if ($userLoggedIn == $added_by) {
-                        $delete_button = "<button class='delet_button btn-danger' id='post$id'>x</buton>";
+                        $delete_button = "<button class='delete_button' id='post$id' style='height:15px;'><img src='./assets/icons/delete.svg'></buton>";
                     } else {
                         $delete_button="";
                     }
