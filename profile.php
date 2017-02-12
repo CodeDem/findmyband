@@ -66,7 +66,7 @@ if (isset($_POST['respond_request'])) {
 
    		</form>
 
-      <input type="submit" class="deep_orange" data-toggle="modal" data-target="#post_modal" value="Post Something">
+      <input type="submit" class="deep_orange" data-toggle="modal" data-target="#post_form" value="Post Something">
 
   </div>
 
@@ -78,13 +78,13 @@ if (isset($_POST['respond_request'])) {
 
 	</div>
   <!-- Modal -->
-<div class="modal fade" id="post_modal" tabindex="-1" role="dialog" aria-labelledby="PostModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="PostModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Post Something</h4>
+        <h4 class="modal-title" id="postModalLabel">Post Something!</h4>
       </div>
 
       <div class="modal-body">
@@ -94,8 +94,6 @@ if (isset($_POST['respond_request'])) {
             <textarea name="post_body" class="form-control"></textarea>
             <input type="hidden" name="user_from" value="<?php echo $userLoggedIn;?>">
             <input type="hidden" name="user_to" value="<?php echo $username;?>">
-
-
           </div>
         </form>
       </div>
