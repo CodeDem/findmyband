@@ -97,7 +97,7 @@ class Post
                     }
 
                     if ($userLoggedIn == $added_by) {
-                        $delete_button = "<input type='image'   src='./assets/icons/delete.svg' class='delete_button' id='post$id' style='height:19px;width:19px;border-outline:none;'/>";
+                        $delete_button = "<input type='image'   src='./assets/icons/delete.svg' class='delete_button' id='post$id'/>";
                     } else {
                         $delete_button="";
                     }

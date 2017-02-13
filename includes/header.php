@@ -20,11 +20,7 @@ include("includes/classes/Post.php");
    <script src="assets/js/bootbox.min.js"></script>
    <link rel="stylesheet" href="assets/css/bootstrap.css">
    <link rel="stylesheet" href="assets/css/style.css">
-   <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
    <script src="assets/js/findmyband.js"></script>
-  <!-- <script src="https://use.fontawesome.com/2e81b56511.js"></script> -->
-
-
  </head>
 
  <body>
