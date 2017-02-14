@@ -342,3 +342,14 @@ textarea:focus {
     outline: none;
     float: right;
 }
+
+.profile_main_column {
+    min-width: 675px;
+    float: left;
+    width: 70%;
+    z-index: -1;
+}
+
+.profile_info_bottom {
+    margin: 10 0 0 37px;
+}
