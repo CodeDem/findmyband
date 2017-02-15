@@ -2,6 +2,7 @@
 require 'config/config.php';
 include("includes/classes/User.php");
 include("includes/classes/Post.php");
+include("includes/classes/Message.php");
 
   if (isset($_SESSION['username'])) {
       $userLoggedIn = $_SESSION['username'];
@@ -16,11 +17,12 @@ include("includes/classes/Post.php");
  <head>
    <title>Welcome to FindMyBand</title>
    <script src="assets/js/jquery.js"></script>
-   <script src="assets/js/bootstrap.js"></script>
+   <script src="assets/js/bootstrap.min.js"></script>
    <script src="assets/js/bootbox.min.js"></script>
-   <link rel="stylesheet" href="assets/css/bootstrap.css">
-   <link rel="stylesheet" href="assets/css/style.css">
    <script src="assets/js/findmyband.js"></script>
+   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+   <link rel="stylesheet" href="assets/css/style.css">
+
  </head>
 
  <body>

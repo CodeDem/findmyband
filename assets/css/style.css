@@ -120,7 +120,7 @@ nav a:hover {
     float: right;
     width: 70%;
     z-index: -1;
-    min-height: 160px;
+    min-height: 181px;
 }
 
 .post_form {
@@ -352,4 +352,114 @@ textarea:focus {
 
 .profile_info_bottom {
     margin: 10 0 0 37px;
+}
+
+#message_textarea {
+    width: 80%;
+    margin-right: 8px;
+    border-radius: 5px;
+    border: 1px solid #D3D3D3;
+    font-size: 14px;
+}
+
+#message_submit {
+    height: 51px;
+    width: 120px;
+    margin: 0;
+    position: absolute;
+    border: none;
+    background-color: #ffd4c6;
+    border-radius: 6px;
+    background-color: #E64A19;
+    font-family: 'roboto', sans-serif;
+    text-shadow: #bf3911 0.5px 0.5px 0px;
+}
+
+.message {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: inline-block;
+    color: #fff;
+}
+
+.message#blue {
+    background-color: #FF3D00;
+    border-color: #D84315;
+    float: right;
+    margin-bottom: 5px;
+}
+
+.message#green {
+    background-color: #4CAF50;
+    border-color: #1B5E20;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.loaded_messages {
+    height: 65%;
+    min-height: 300px;
+    max-height: 400px;
+    overflow: scroll;
+    margin-bottom: 10px;
+}
+
+.loaded_conversations {
+    max-height: 216px;
+    overflow: scroll;
+}
+
+.user_found_messages {
+    border-bottom: 1px solid #D3D3D3;
+    padding: 8px 8px 10px 8px;
+}
+
+.user_found_messages:hover {
+    background-color: #D3D3D3;
+}
+
+.user_found_messages img {
+    height: 35px;
+    float: left;
+}
+
+#grey {
+    color: #8C8C8C;
+}
+
+.resultDisplay {
+    padding: 5px 5px 0px 5px;
+    height: 60px;
+    border-bottom: 1px solid #D3D3D3;
+}
+
+.resultDisplay a {
+    float: none;
+}
+
+.resultDisplay:hover {
+    background-color: #EBEBEB;
+    text-decoration: none;
+}
+
+.liveSearchProfilePic img {
+    height: 50px;
+    border-radius: 25px;
+    margin: 1px 12px 0 2px;
+    float: left;
+}
+
+.liveSearchText {
+    background-color: transparent;
+    color: #E64A19;
+}
+
+.liveSearchText p {
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.tab-content {
+    margin-top: 25px;
 }
