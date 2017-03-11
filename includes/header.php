@@ -32,13 +32,25 @@ include("includes/classes/Message.php");
       </div>
 <!-------------------------------------------NAV BAR------------------------------------------------------------------------------------------------>
       <nav>
+
+        <?php
+        //unread messages
+        $messages = new Message($con, $userLoggedIn);
+        $num_messages = $messages->GetUnreadNumber();
+
+         ?>
         <a href="<?php echo $userLoggedIn;?>">
           <?php echo $user['username']; ?>
         </a>
         <a href="#"><img src="./assets/icons/home.svg" alt="Home" class="nav-icon"></a>
-        <a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn;?>', 'message')"><img src="./assets/icons/chat.svg" alt="Message" class="nav-icon"></a>
+        <a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn;?>', 'message')"><img src="./assets/icons/chat.svg" alt="Message" class="nav-icon">
+          <?php
+          if ($num_messages > 0)
+          echo '<span class="notification_badge" id="unread_message">'.$num_messages.'</span>';
+            ?>
+        </a>
         <a href="#"><img src="./assets/icons/ring.svg" alt="Notifictions" class="nav-icon"></a>
-        <a href="requests.php"><img src="./assets/icons/user.svg" alt="Settings" class="nav-icon"></a>
+        <a href="requests.php"><img src="./assets/icons/user.svg" alt="user" class="nav-icon"></a>
         <a href="#"><img src="./assets/icons/settings.svg" alt="Settings" class="nav-icon"></a>
         <a href="includes/handlers/logout.php"><img src="./assets/icons/exit.svg" alt="Log Out" class="nav-icon"></a>
 
@@ -54,7 +66,7 @@ include("includes/classes/Message.php");
 
   	$(document).ready(function() {
 
-  		$(window).scroll(function() {
+  		$('.dropdown_data_window').scroll(function() {
   			var inner_height = $('.dropdown_data_window').innerHeight(); //Div containing datat
   			var scroll_top = $('.dropdown_data_window').scrollTop();
   			var page = $('.dropdown_data_window').find('.nextPageDropdownData').val();

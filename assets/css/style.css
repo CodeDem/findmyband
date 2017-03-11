@@ -71,6 +71,7 @@ nav a {
 
 nav a:hover {
     border-bottom: 7px solid #E67E22;
+    color: #fff;
 }
 
 .nav-icon {
@@ -488,4 +489,19 @@ textarea:focus {
     border-radius: 25px;
     -webkit-transform: translate3d(0px, 0px, 0px);
     -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.notification_badge {
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #940d0d;
+    border-radius: 10px;
+    position: absolute;
+    left: 29px;
+    top: -12px;
 }

@@ -4,33 +4,31 @@ class Message
     private $user_obj;
     private $con;
 
-    public function __construct($con, $user)
-    {
+    public function __construct($con, $user){
         $this->con = $con;
         $this->user_obj = new User($con, $user);
     }
 
-    public function getMostRecentUser() {
- 		$userLoggedIn = $this->user_obj->getUsername();
+    public function getMostRecentUser(){
+ 		   $userLoggedIn = $this->user_obj->getUsername();
 
- 		$query = mysqli_query($this->con, "SELECT user_to, user_from FROM messages WHERE user_to='$userLoggedIn' OR user_from='$userLoggedIn' ORDER BY id DESC LIMIT 1");
+ 		 $query = mysqli_query($this->con, "SELECT user_to, user_from FROM messages WHERE user_to='$userLoggedIn' OR user_from='$userLoggedIn' ORDER BY id DESC LIMIT 1");
 
- 		if(mysqli_num_rows($query) == 0)
+ 		  if(mysqli_num_rows($query) == 0)
  			return false;
 
- 		$row = mysqli_fetch_array($query);
- 		$user_to = $row['user_to'];
- 		$user_from = $row['user_from'];
+ 		   $row = mysqli_fetch_array($query);
+ 		    $user_to = $row['user_to'];
+ 		     $user_from = $row['user_from'];
 
- 		if($user_to != $userLoggedIn)
- 			return $user_to;
- 		else
- 			return $user_from;
+ 		      if($user_to != $userLoggedIn)
+ 			      return $user_to;
+ 		   else
+ 			   return $user_from;
 
- 	}
+  	}
 
-  public function sendMessage($user_to,$body,$date)
-  {
+  public function sendMessage($user_to,$body,$date){
     if ($body != "") {
       $userLoggedIn = $this->user_obj->getUsername();
       $user_to = ucfirst($user_to);
@@ -242,6 +240,12 @@ class Message
 		return $return_string;
 	}
 
+  public function GetUnreadNumber()
+  {
+    $userLoggedIn = $this->user_obj->getUsername();
+    $query = mysqli_query($this->con,"SELECT * FROM messages WHERE viewed='no' AND user_to='$userLoggedIn'");
+    return mysqli_num_rows($query);
+  }
 
 }
 
