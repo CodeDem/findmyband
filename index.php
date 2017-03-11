@@ -98,6 +98,23 @@ if (isset($_POST['post'])) {
 
 	</script>
 
+ <div id="map" class="jam_map"></div>
+<script>
+      function initMap() {
+        var uluru = {lat: 19.1297512, lng:72.92623490000005};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG7ahdczVoxoOgiYlhKeJYBDcF710M40s&callback=initMap">
+  </script>
 
 
 

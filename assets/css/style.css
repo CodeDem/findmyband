@@ -463,3 +463,29 @@ textarea:focus {
 .tab-content {
     margin-top: 25px;
 }
+
+.dropdown_data_window {
+    height: 280px;
+    padding: 0px;
+    background-color: #fff;
+    border: 1px solid #DADADA;
+    border-radius: 0 0 8px 8px;
+    border-top: none;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    overflow: scroll;
+}
+
+.jam_map {
+    float: left;
+    height: 304px;
+    width: 393px;
+    margin-left: -120;
+    margin-top: 40px;
+    border: 2px solid #E64A19;
+    border-radius: 25px;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}

@@ -36,7 +36,7 @@ include("includes/classes/Message.php");
           <?php echo $user['username']; ?>
         </a>
         <a href="#"><img src="./assets/icons/home.svg" alt="Home" class="nav-icon"></a>
-        <a href="#"><img src="./assets/icons/chat.svg" alt="Message" class="nav-icon"></a>
+        <a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn;?>', 'message')"><img src="./assets/icons/chat.svg" alt="Message" class="nav-icon"></a>
         <a href="#"><img src="./assets/icons/ring.svg" alt="Notifictions" class="nav-icon"></a>
         <a href="requests.php"><img src="./assets/icons/user.svg" alt="Settings" class="nav-icon"></a>
         <a href="#"><img src="./assets/icons/settings.svg" alt="Settings" class="nav-icon"></a>
@@ -44,6 +44,58 @@ include("includes/classes/Message.php");
 
       </nav>
 
+      <div class="dropdown_data_window" style="height:0px;border:none;">
+        <input type="hidden" id="dropdown_data_type" name="" value="">
+      </div>
     </div>
+
+    <script>
+  	var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+
+  	$(document).ready(function() {
+
+  		$(window).scroll(function() {
+  			var inner_height = $('.dropdown_data_window').innerHeight(); //Div containing datat
+  			var scroll_top = $('.dropdown_data_window').scrollTop();
+  			var page = $('.dropdown_data_window').find('.nextPageDropdownData').val();
+  			var noMoreData= $('.dropdown_data_window').find('.noMoreDropdownData').val();
+
+  			if ((scroll_top + inner_height >= $('.dropdown_data_window')[0].scrollHeight) && noMoreData == 'false') {
+          var pageName; //holds name of page to send ajax request to
+          var type = $('#dropdown_data_type').val();
+
+          if (type == 'notification') {
+            pageName = "ajax_load_notifications.php"
+          else if (type = 'message') {
+            pageName = "ajax_load_messages.php"
+          }
+
+          }
+
+
+
+  				var ajaxReq = $.ajax({
+  					url: "includes/handlers/" + pageName,
+  					type: "POST",
+  					data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+  					cache:false,
+
+  					success: function(response) {
+  						$('.dropdown_data_window').find('.nextPageDropdownData').remove(); //Removes current .nextpage
+  						$('.dropdown_data_window').find('.noMoreDropdownData').remove(); //Removes current .nextpage
+  						$('.dropdown_data_window').append(response);
+  					}
+  				});
+
+  			} //End if
+
+  			return false;
+
+  		}); //End (window).scroll(function())
+
+
+  	});
+
+  	</script>
 
     <div class="wrapper">
