@@ -3,6 +3,7 @@ require 'config/config.php';
 include("includes/classes/User.php");
 include("includes/classes/Post.php");
 include("includes/classes/Message.php");
+include("includes/classes/Notification.php");
 
   if (isset($_SESSION['username'])) {
       $userLoggedIn = $_SESSION['username'];
@@ -38,6 +39,10 @@ include("includes/classes/Message.php");
         $messages = new Message($con, $userLoggedIn);
         $num_messages = $messages->GetUnreadNumber();
 
+        //unread notifications
+        $notifications = new Notification($con, $userLoggedIn);
+        $num_notifications = $notifications->GetUnreadNumber();
+
          ?>
         <a href="<?php echo $userLoggedIn;?>">
           <?php echo $user['username']; ?>
@@ -49,7 +54,12 @@ include("includes/classes/Message.php");
           echo '<span class="notification_badge" id="unread_message">'.$num_messages.'</span>';
             ?>
         </a>
-        <a href="#"><img src="./assets/icons/ring.svg" alt="Notifictions" class="nav-icon"></a>
+        <a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn;?>', 'notification')"><img src="./assets/icons/ring.svg" alt="Notifictions" class="nav-icon">
+          <?php
+          if ($num_notifications > 0)
+          echo '<span class="notification_badge" id="unread_notification">'.$num_notifications.'</span>';
+            ?>
+        </a>
         <a href="requests.php"><img src="./assets/icons/user.svg" alt="user" class="nav-icon"></a>
         <a href="#"><img src="./assets/icons/settings.svg" alt="Settings" class="nav-icon"></a>
         <a href="includes/handlers/logout.php"><img src="./assets/icons/exit.svg" alt="Log Out" class="nav-icon"></a>
