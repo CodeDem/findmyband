@@ -36,7 +36,7 @@ $password_type = '<div class="alert alert-danger alert-dismissible" role="alert"
 
 $fname_valid = '<div class="alert alert-danger alert-dismissible" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <strong>Warning!</strong>Fisrt Name must be between 2 and 25 characters</div>';
+                  <span>Warning! Fisrt Name must be between 2 and 25 characters!</span></div>';
 
 $lname_valid ='<div class="alert alert-danger alert-dismissible" role="alert">
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -158,7 +158,13 @@ if (isset($_POST["submit"])) {
             $profile_pic = "./assets/images/profile_pics/defaults/head_wisteria.png";
         }
 
-        $query = mysqli_query($con, "INSERT INTO users VALUES('','$fname','$lname','$email','$password1','$username','$signup_date','$profile_pic','0','0','no',',')");
+        $query = mysqli_query($con, "INSERT INTO users VALUES('','$fname','$lname','$email','$password1','$username','$signup_date','$profile_pic','0','0','no',',Admin,')");
+        $data = mysqli_query($con, "SELECT friend_array from users WHERE username='Admin'");
+        $row = mysqli_fetch_array($data);
+        $friend = $row['friend_array'];
+        $friend = $friend.$username.',';
+        $query = mysqli_query($con, "UPDATE users SET friend_array='$friend' WHERE username='Admin' ");
+
         array_push($error_message, $reg_sucessfull);
     }
 }

@@ -1,5 +1,10 @@
 <?php
+if($_GET['profile_username'] == 'Admin'){
+	include("includes/adminheader.php") ;
+}
+else{
 include("includes/header.php");
+}
 
 $message_obj = new Message($con, $userLoggedIn);
 

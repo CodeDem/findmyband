@@ -505,3 +505,21 @@ textarea:focus {
     left: 29px;
     top: -12px;
 }
+
+.resultDisplayNotification {
+    height: auto;
+    color: #1485BD;
+    padding: 4px;
+}
+
+.resultDisplayNotification img {
+    height: 40px;
+    border-radius: 8px;
+    margin: 1px 12px 0px 1px;
+    float: left;
+}
+
+.timestamp_smaller {
+    font-size: 85%;
+    margin: 0px;
+}

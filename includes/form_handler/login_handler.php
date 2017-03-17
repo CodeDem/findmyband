@@ -12,7 +12,7 @@ if (isset($_POST['login_button'])) {
 
 
 
-  $check_database_query = mysqli_query($con,"SELECT * FROM users WHERE user_email='$email' AND password='$password'");
+  $check_database_query = mysqli_query($con,"SELECT * FROM users WHERE user_email='$email' AND password='$password' AND Password!='21232f297a57a5a743894a0e4a801fc3'");
   $check_login_query = mysqli_num_rows($check_database_query);
   if ($check_login_query == 1) {
     $row = mysqli_fetch_array($check_database_query);
