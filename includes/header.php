@@ -21,11 +21,9 @@ include("includes/classes/Notification.php");
    <script src="assets/js/bootstrap.min.js"></script>
    <script src="assets/js/bootbox.min.js"></script>
    <script src="assets/js/findmyband.js"></script>
-   <script src="assets/js/jquery.jcrop.js"></script>
-	<script src="assets/js/jcrop_bits.js"></script>
    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
    <link rel="stylesheet" href="assets/css/style.css">
-   <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
+
 
  </head>
 

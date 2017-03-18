@@ -99,19 +99,75 @@ if (isset($_POST['post'])) {
 	</script>
 
  <div id="map" class="jam_map"></div>
-<script>
-      function initMap() {
-        var uluru = {lat: 19.1297512, lng:72.92623490000005};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
+ <script>
+       var customLabel = {
+         jamroom: {
+           label: 'J'
+         }
+       };
+
+         function initMap() {
+         var map = new google.maps.Map(document.getElementById('map'), {
+           center: new google.maps.LatLng(19.023681, 72.851358),
+           zoom: 16
+         });
+         var infoWindow = new google.maps.InfoWindow;
+
+
+           downloadUrl('assets/mapdata.xml', function(data) {
+             var xml = data.responseXML;
+             var markers = xml.documentElement.getElementsByTagName('marker');
+             Array.prototype.forEach.call(markers, function(markerElem) {
+               var name = markerElem.getAttribute('name');
+               var address = markerElem.getAttribute('address');
+               var Information = markerElem.getAttribute('info');
+               var type = markerElem.getAttribute('type');
+               var point = new google.maps.LatLng(
+                   parseFloat(markerElem.getAttribute('lat')),
+                   parseFloat(markerElem.getAttribute('lng')));
+
+               var infowincontent = "<div><strong>"+name+"</strong></br><u>"+Information+"</u></br><text>Address:<span style='color:#611b05'>"+address+"</span></text></div>"
+
+               var icon = customLabel[type] || {};
+               var marker = new google.maps.Marker({
+                 map: map,
+                 position: point,
+                 label: icon.label
+               });
+                 marker.addListener('click', function() {
+                 infoWindow.setContent(infowincontent);
+                 infoWindow.open(map, marker);
+
+
+               });
+             });
+           });
+         }
+
+
+      function mpost() {
+        alert("Hello demom");
       }
-    </script>
+
+
+       function downloadUrl(url, callback) {
+         var request = window.ActiveXObject ?
+             new ActiveXObject('Microsoft.XMLHTTP') :
+             new XMLHttpRequest;
+
+         request.onreadystatechange = function() {
+           if (request.readyState == 4) {
+             request.onreadystatechange = doNothing;
+             callback(request, request.status);
+           }
+         };
+
+         request.open('GET', url, true);
+         request.send(null);
+       }
+
+       function doNothing() {}
+     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG7ahdczVoxoOgiYlhKeJYBDcF710M40s&callback=initMap">
   </script>

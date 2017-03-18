@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 14, 2017 at 10:47 PM
+-- Generation Time: Mar 18, 2017 at 03:58 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -36,13 +36,6 @@ CREATE TABLE `comments` (
   `post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`id`, `post_body`, `posted_by`, `posted_to`, `date_added`, `removed`, `post_id`) VALUES
-(1, 'heyy', 'Dhiraj', 'Rohan', '2017-02-14 13:32:33', 'no', 4);
-
 -- --------------------------------------------------------
 
 --
@@ -70,6 +63,65 @@ CREATE TABLE `likes` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `markers`
+--
+
+CREATE TABLE `markers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `address` varchar(150) NOT NULL,
+  `info` varchar(150) NOT NULL,
+  `lat` float(10,6) NOT NULL,
+  `lang` float(10,6) NOT NULL,
+  `type` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `markers`
+--
+
+INSERT INTO `markers` (`id`, `name`, `address`, `info`, `lat`, `lang`, `type`) VALUES
+(1, 'Musicians lab', 'Lakhamsi Napoo Road, Opp Matunga Gymkhana, Matunga, Dadar, Mumbai, Maharashtra 400019', 'Cost Per Hour Rs:300 Drums Included', 19.025187, 72.850388, 'jamroom'),
+(2, 'Beats Studio', '4, Lakshami Nappu Rd Matunga Central Railway Workshop', 'Cost Per Hour Rs:500 Drums and guitar Included', 19.023129, 72.847641, 'jamroom'),
+(3, 'BenchMark Studio', '216, Bhalchandra bhawan, Sir Bhalchandra Road, Behind Ruia College', 'Cost Per Hour: Rs:800', 19.024097, 72.851685, 'jamrooms');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `user_to` varchar(50) NOT NULL,
+  `user_from` varchar(50) NOT NULL,
+  `body` text NOT NULL,
+  `date` datetime NOT NULL,
+  `opened` varchar(3) NOT NULL,
+  `viewed` varchar(3) NOT NULL,
+  `deleted` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `user_to` varchar(50) NOT NULL,
+  `user_from` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `link` varchar(100) NOT NULL,
+  `datetime` datetime NOT NULL,
+  `opened` varchar(3) NOT NULL,
+  `viewed` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -83,17 +135,6 @@ CREATE TABLE `posts` (
   `deleted` varchar(3) NOT NULL,
   `likes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `posts`
---
-
-INSERT INTO `posts` (`id`, `body`, `added_by`, `user_to`, `date_added`, `user_closed`, `deleted`, `likes`) VALUES
-(2, 'Hello, I am planning to Jam at Musician\'s Gym Kanjurmarg, any bass guitarist available?', 'Dhiraj', 'none', '2017-02-14 04:46:13', 'no', 'no', 0),
-(3, 'Did a Studio recording for our New Cover with @dhiraj @rohan .Stay Tuned for it :)', 'Pranita', 'none', '2017-02-14 04:49:20', 'no', 'no', 0),
-(4, 'Does anyone Have a Cajon Box.We are Looking for a Cajon Box Player for Our next acoustic cover.', 'Rohan', 'none', '2017-02-14 04:51:07', 'no', 'no', 1),
-(7, 'sda', 'asdfsd', 'asdfsdaf', '2017-02-14 13:34:14', 'no', 'no', 0),
-(8, 'happy Birthday Pranita :)', 'Dhiraj', 'Pranita', '2017-02-14 13:34:14', 'no', 'no', 0);
 
 -- --------------------------------------------------------
 
@@ -121,9 +162,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_email`, `password`, `username`, `signup_date`, `profile_pic`, `num_posts`, `num_likes`, `user_closed`, `friend_array`) VALUES
-(24, 'Dhiraj', 'Kadam', 'dhiraj@gmail.com', '432639de2357c9d560a9c3d022d3fc8a', 'Dhiraj', '2017-02-14', './assets/images/profile_pics/defaults/head_emerald.png', 2, 0, 'no', ',Pranita,Rohan,'),
-(25, 'Rohan', 'Parab', 'rohan@gmail.com', 'c916d142f0dc7f9389653a164f1d4e9d', 'Rohan', '2017-02-14', './assets/images/profile_pics/defaults/head_green_sea.png', 1, 0, 'no', ',Dhiraj,'),
-(26, 'Pranita', 'Thorat', 'pranita@gmail.com', '21280d737171afdd9fc23d9729b8fa80', 'Pranita', '2017-02-14', './assets/images/profile_pics/defaults/head_turqoise.png', 1, 0, 'no', ',Dhiraj,');
+(33, 'Admin', 'Admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '2017-03-15', './assets/images/profile_pics/defaults/head_belize_hole.png', 0, 0, 'no', ',Dhiraj,Rohan,Pranita,Chinmay,'),
+(34, 'Dhiraj', 'Kadam', 'dhiraj@gmail.com', '432639de2357c9d560a9c3d022d3fc8a', 'Dhiraj', '2017-03-18', './assets/images/profile_pics/defaults/head_alizarin.png', 0, 0, 'no', ',Admin,'),
+(35, 'Rohan', 'Parab', 'rohan@gmail.com', 'c916d142f0dc7f9389653a164f1d4e9d', 'Rohan', '2017-03-18', './assets/images/profile_pics/defaults/head_sun_flower.png', 0, 0, 'no', ',Admin,'),
+(36, 'Pranita', 'Thorat', 'pranita@gmail.com', '21280d737171afdd9fc23d9729b8fa80', 'Pranita', '2017-03-18', './assets/images/profile_pics/defaults/head_sun_flower.png', 0, 0, 'no', ',Admin,'),
+(37, 'Chinmay', 'Arolkar', 'chinmay@gmail.com', '72264e113943a77136e9a82eecd01274', 'Chinmay', '2017-03-18', './assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ',Admin,');
 
 --
 -- Indexes for dumped tables
@@ -148,6 +191,24 @@ ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `markers`
+--
+ALTER TABLE `markers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -167,7 +228,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `friend_requests`
 --
@@ -177,17 +238,32 @@ ALTER TABLE `friend_requests`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `markers`
+--
+ALTER TABLE `markers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
