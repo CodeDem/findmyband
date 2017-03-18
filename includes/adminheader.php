@@ -21,11 +21,8 @@ include("includes/classes/Notification.php");
    <script src="assets/js/bootstrap.min.js"></script>
    <script src="assets/js/bootbox.min.js"></script>
    <script src="assets/js/findmyband.js"></script>
-   <script src="assets/js/jquery.jcrop.js"></script>
-	 <script src="assets/js/jcrop_bits.js"></script>
    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
    <link rel="stylesheet" href="assets/css/style.css">
-   <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
 
  </head>
 
@@ -63,7 +60,7 @@ include("includes/classes/Notification.php");
           echo '<span class="notification_badge" id="unread_notification">'.$num_notifications.'</span>';
             ?>
         </a>
-        <a href="requests.php"><img src="./assets/icons/user.svg" alt="user" class="nav-icon"></a>
+        <a href="userlist.php"><img src="./assets/icons/user.svg" alt="user" class="nav-icon"></a>
         <a href="#"><img src="./assets/icons/settings.svg" alt="Settings" class="nav-icon"></a>
         <a href="includes/handlers/admin/adminlogout.php"><img src="./assets/icons/exit.svg" alt="Log Out" class="nav-icon"></a>
 
