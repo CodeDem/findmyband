@@ -68,7 +68,7 @@
 
 		$get_commenters = mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id'");
 		$notified_users = array();
-		while ($row = mysqli_fecth_array($get_commenters)) {
+		while ($row = mysqli_fetch_array($get_commenters)) {
 			if ($row['posted_by'] != $posted_to && $row['posted_by'] != $user_to &&$row['posted_by'] != $userLoggedIn && !in_array($row['posted_by'], $notified_users)) {
 				$notification = new Notification($con, $userLoggedIn);
 				$notification->insertNotification($post_id, $row['posted_by'],"comment_non_owner");
