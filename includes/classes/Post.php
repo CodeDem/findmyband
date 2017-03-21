@@ -244,6 +244,8 @@ class Post
     {
       $userLoggedIn = $this->user_obj->getUsername();
 
+      $opened_query = mysqli_query($this->con,"UPDATE notifications SET opened='yes' WHERE user_to='$userLoggedIn'  AND link LIKE '%=$post_id'");
+
 
       $str = ""; //String to return
       $data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE deleted='no' AND id='$post_id' ");

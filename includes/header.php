@@ -32,6 +32,17 @@ include("includes/classes/Notification.php");
       <div class="logo">
       <a href="index.php">FindMyBand</a>
       </div>
+
+      <div class="search">
+        <form action="search.php" method="GET" name="search_form">
+          <input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn ;?>')" name="q" placeholder="Search ...." autocomplete="off" id="search_text_input">
+          <div class="button_holder">
+            <img src="assets/images/icons/search.svg" alt="search">
+          </div>
+        </form>
+        <div class="search_results"></div>
+        <div class="search_results_footer_empty"></div>
+      </div>
 <!-------------------------------------------NAV BAR------------------------------------------------------------------------------------------------>
       <nav>
 
@@ -39,6 +50,10 @@ include("includes/classes/Notification.php");
         //unread messages
         $messages = new Message($con, $userLoggedIn);
         $num_messages = $messages->GetUnreadNumber();
+
+        //unread notifications
+        $usr_obj = new User($con, $userLoggedIn);
+        $num_requests = $usr_obj->getNumberOfFriendRequests();
 
         //unread notifications
         $notifications = new Notification($con, $userLoggedIn);
@@ -61,7 +76,12 @@ include("includes/classes/Notification.php");
           echo '<span class="notification_badge" id="unread_notification">'.$num_notifications.'</span>';
             ?>
         </a>
-        <a href="requests.php"><img src="./assets/icons/user.svg" alt="user" class="nav-icon"></a>
+        <a href="requests.php"><img src="./assets/icons/user.svg" alt="user" class="nav-icon">
+          <?php
+          if ($num_requests > 0)
+          echo '<span class="notification_badge" id="unread_requests">'.$num_requests.'</span>';
+            ?>
+        </a>
         <a href="#"><img src="./assets/icons/settings.svg" alt="Settings" class="nav-icon"></a>
         <a href="includes/handlers/logout.php"><img src="./assets/icons/exit.svg" alt="Log Out" class="nav-icon"></a>
 
@@ -89,11 +109,12 @@ include("includes/classes/Notification.php");
 
           if (type == 'notification') {
             pageName = "ajax_load_notifications.php"
+            }
           else if (type = 'message') {
             pageName = "ajax_load_messages.php"
           }
 
-          }
+
 
 
 

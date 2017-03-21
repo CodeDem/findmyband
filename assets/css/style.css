@@ -523,3 +523,29 @@ textarea:focus {
     font-size: 85%;
     margin: 0px;
 }
+
+.search {
+    margin: 19px 0px 0px 15%;
+}
+
+.search #search_text_input {
+    border: thin solid #882121;
+    background-color: #ffded3;
+    border-radius: 8px;
+    float: left;
+    height: 25px;
+    outline: 0px;
+    width: 100px;
+}
+
+.button_holder {
+    cursor: pointer;
+    margin: -7px 0px 0px -20px;
+    height: 26px;
+    float: left;
+    width: 50px;
+}
+
+.button_holder img {
+    height: 35px;
+}
