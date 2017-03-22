@@ -71,33 +71,32 @@
                 <form action="register.php" method="POST">
 
                   <!---------------------FIRST NAME---------------------------------------------------------->
-                    <div class="form-group">
+                    <div >
                       <input type="text" class="input_style" name="fname" placeholder="First Name" value="<?php
                          if(isset($_SESSION['fname']))
                          {
                            echo $_SESSION['fname'];
                          }
                        ?>" />
-                       <br>
                        <?php
-                         if (in_array($fname_valid,$error_message))echo $fname_valid."<br>";
+                         if (in_array($fname_valid,$error_message))echo $fname_valid;
                        ?>
                     </div>
 
                   <!---------------------LAST NAME---------------------------------------------------------->
-                    <div class="form-group">
+                    <div >
                        <input type="text" class="input_style" name="lname" placeholder="Last Name" value="<?php
                          if(isset($_SESSION['lname']))
                          {
                            echo $_SESSION['lname'];
                          }
-                       ?>"/><br>
-                       <?php if (in_array($lname_valid,$error_message))echo $lname_valid."<br>"; ?>
+                       ?>"/>
+                       <?php if (in_array($lname_valid,$error_message))echo $lname_valid; ?>
                    </div>
 
                   <!---------------------USERNAME---------------------------------------------------------->
                    <div class="form-group">
-                     <input type="text"  class="input_style" name="username" placeholder="username" /><br>
+                     <input type="text"  class="input_style" name="username" placeholder="username" />
                      <?php
                      if(in_array($username_check,$error_message)) echo $username_check;
                      ?>
@@ -112,7 +111,6 @@
                          echo $_SESSION['email'];
                        }
                      ?>">
-                     <br>
                      <?php
                      if(in_array($email_check,$error_message))
                      {
@@ -123,22 +121,22 @@
 
                   <!---------------------REGISTRATION PASSWORD---------------------------------------------------------->
                   <div class="form-group">
-                     <input type="password" class="input_style" name="password1" placeholder="password" required /><br>
+                     <input type="password" class="input_style" name="password1" placeholder="password" required />
                   </div>
 
                   <!---------------------CONFIRM REGISTRATION PASSWORD---------------------------------------------------------->
                   <div class="form-group">
-                     <input type="password" class="input_style" name="password2" placeholder="confirm password" required /> <br>
+                     <input type="password" class="input_style" name="password2" placeholder="confirm password" required />
                        <?php
-                        if(in_array($password_type,$error_message)) echo $password_type."<br>";
-                        elseif (in_array($password_match,$error_message)) echo $password_match."<br>";
+                        if(in_array($password_type,$error_message)) echo $password_type;
+                        elseif (in_array($password_match,$error_message)) echo $password_match;
                        ?>
                   </div>
 
                   <!---------------------REGISTRATION SUBMIT---------------------------------------------------------->
                   <div class="form-group">
                      <input type="submit" name="submit" value="  Sign up"/>
-                     <?php if (in_array($reg_sucessfull,$error_message)) echo $reg_sucessfull; ?><br>
+                     <?php if (in_array($reg_sucessfull,$error_message)) echo $reg_sucessfull; ?>
                      <a href="#" id="signin" class="signin">Already Have an Accoount? Login Here!</a>
                   </div>
                  </form>

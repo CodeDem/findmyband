@@ -11,41 +11,27 @@ $password1="";
 $password2="";
 $error_message=array();//to hold registration error
 $username = "";
-$reg_sucessfull = "<span style='color:blue'>Great! Now you are all set to Login</span>";
+$reg_sucessfull = "<span style='color:blue'>Great! Now you are all set to Login</span><br>";
 
 //variable for error Message
-$email_check = '<div class="alert alert-danger alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <span>Email ID already in use</span></div>';
+$email_check = '<div >Email ID already in use</div>';
 
 
-$email_valid = '<div class="alert alert-danger alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <span>Email ID Format Incorrect</span></div>';
+$email_valid = '<div>Email ID Format Incorrect</div>';
 
 
-$password_match = '<div class="alert alert-danger alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <strong>Warning!</strong>EPassword did not match</div>';
+$password_match = '<div>Password did not match</div>';
 
 
-$password_type = '<div class="alert alert-danger alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <strong>Warning!</strong>your password can contain only letters and numbers</div>';
+$password_type = '<div>your password can contain only letters and numbers</div>';
 
 
-$fname_valid = '<div class="alert alert-danger alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <span>Warning! Fisrt Name must be between 2 and 25 characters!</span></div>';
+$fname_valid = '<div>Warning! Fisrt Name must be between 2 and 25 characters!</div>';
 
-$lname_valid ='<div class="alert alert-danger alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <strong>Warning!</strong>Last Name must be between 2 and 25 characters</div>';
+$lname_valid ='<div>Last Name must be between 2 and 25 characters</div>';
 
 
-$username_check = '<div class="alert alert-danger alert-dismissible" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <strong>Warning!</strong>Username already taken</div>';
+$username_check = '<div>Username already taken</div>';
 
 if (isset($_POST["submit"])) {
     //first name
