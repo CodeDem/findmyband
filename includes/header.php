@@ -63,7 +63,7 @@ include("includes/classes/Notification.php");
         <a href="<?php echo $userLoggedIn;?>">
           <?php echo $user['username']; ?>
         </a>
-        <a href="#"><img src="./assets/icons/home.svg" alt="Home" class="nav-icon"></a>
+        <a href="index.php"><img src="./assets/icons/home.svg" alt="Home" class="nav-icon"></a>
         <a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn;?>', 'message')"><img src="./assets/icons/chat.svg" alt="Message" class="nav-icon">
           <?php
           if ($num_messages > 0)
@@ -82,7 +82,7 @@ include("includes/classes/Notification.php");
           echo '<span class="notification_badge" id="unread_requests">'.$num_requests.'</span>';
             ?>
         </a>
-        <a href="#"><img src="./assets/icons/settings.svg" alt="Settings" class="nav-icon"></a>
+        <a href="settings.php"><img src="./assets/icons/settings.svg" alt="Settings" class="nav-icon"></a>
         <a href="includes/handlers/logout.php"><img src="./assets/icons/exit.svg" alt="Log Out" class="nav-icon"></a>
 
       </nav>

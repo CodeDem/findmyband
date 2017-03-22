@@ -569,3 +569,57 @@ textarea:focus {
     background-color: #e64a19;
     border-top: none;
 }
+
+.search_result {
+    padding: 15px;
+    height: 160px;
+}
+
+.searchPageFriendButtons{
+  float: right;
+}
+
+.result_profile_pic {
+  float: left;
+  margin-right: 23px;
+}
+
+#search_hr{
+  margin-bottom: 0;
+}
+
+.search_result input{
+order: none;
+border-radius: 25px;
+color:#fff;
+}
+
+#small_profile_pic{
+  height: 80px;
+  margin: -3px 12px 0px 2px;
+  float: left;
+  border-radius: 18px;
+}
+
+#settings_input{
+  border: 1px solid #ccc;
+    height: 25px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 20px;
+}
+#close_account{
+      color: #fff;
+}
+
+.settings_submit{
+  border: none;
+  padding: 7px 12px;
+  border-radius: 5px;
+  color: #fff;}
+
+  .reqst{
+    color: black
+  }

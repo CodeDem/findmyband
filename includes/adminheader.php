@@ -31,6 +31,17 @@ include("includes/classes/Notification.php");
       <div class="logo">
       <a href="admin.php">FindMyBand</a>
       </div>
+
+      <div class="search">
+        <form action="search.php" method="GET" name="search_form">
+          <input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn ;?>')" name="q" placeholder="Search ...." autocomplete="off" id="search_text_input">
+          <div class="button_holder">
+            <img src="assets/images/icons/search.svg" alt="search">
+          </div>
+        </form>
+        <div class="search_results"></div>
+        <div class="search_results_footer_empty"></div>
+      </div>
 <!-------------------------------------------NAV BAR------------------------------------------------------------------------------------------------>
       <nav>
 
@@ -61,7 +72,7 @@ include("includes/classes/Notification.php");
             ?>
         </a>
         <a href="userlist.php"><img src="./assets/icons/user.svg" alt="user" class="nav-icon"></a>
-        <a href="#"><img src="./assets/icons/settings.svg" alt="Settings" class="nav-icon"></a>
+        <a href="settings.php"><img src="./assets/icons/settings.svg" alt="Settings" class="nav-icon"></a>
         <a href="includes/handlers/admin/adminlogout.php"><img src="./assets/icons/exit.svg" alt="Log Out" class="nav-icon"></a>
 
       </nav>

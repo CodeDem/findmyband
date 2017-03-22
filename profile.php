@@ -85,7 +85,7 @@ if(isset($_POST['post_message'])) {
  					echo '<input type="submit" name="respond_request" class="warning" value="Respond to Request"><br>';
  				}
  				else if ($logged_in_user_obj->didSendRequest($username)) {
- 					echo '<input type="submit" name="" class="default" value="Request Sent"><br>';
+ 					echo '<input type="submit" name="" class="default" value="Request Sent" style="color:black"><br>';
  				}
  				else
  					echo '<input type="submit" name="add_friend" class="success" value="Add Friend"><br>';
