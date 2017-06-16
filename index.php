@@ -169,7 +169,7 @@ if (isset($_POST['post'])) {
        function doNothing() {}
      </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG7ahdczVoxoOgiYlhKeJYBDcF710M40s&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key="<Insert your Key>"&callback=initMap">
   </script>
 
 
